@@ -4,16 +4,12 @@
     Проверьте, что переменная num1 равна или меньше 1, а переменная num2 больше или равна 3.
  */
 
-let num1 = prompt('Введите первое число: ');
-
-let num2 = prompt('Введите второе число: ');
-
-
-if (num1 <= 1 && num2 >= 3){
-    console.log('true');
-} else {
-    console.log('false');
-}
+const num1 = prompt("Введите первое число: ", "");
+const num2 = prompt("Введите второе число: ", "");
+    
+if (num1 <= 1 && num2 >= 3) {
+  alert("Условие выполняется: число 1 <= 1 и число 2 >= 3");
+} else alert("Условие не выполняется");
 
 /*
     Задание 2
@@ -27,9 +23,8 @@ if (num1 <= 1 && num2 >= 3){
     }
  */
 
-    let test = true;
-
-    (test === true) ? console.log('+++') : console.log('---');
+let test = true;
+test === true ? console.log("+++") : console.log("---");
 
 /*
     Задание 3
@@ -37,14 +32,17 @@ if (num1 <= 1 && num2 >= 3){
  */
 
 
-    let day = 18;
-
-    if(day <= 10){
-        console.log('Число лежит в 1й декаде!');
-    }else if(day > 10 && day <=20){
-        console.log('Число лежит во 2й декаде!');
-    }else{
-        console.log('Число лежит в 3й декаде!');
+const day = 22;
+if (day >= 1 && day <= 10) {
+  console.log("1я декада");
+} else if (day >= 11 && day <= 20) {
+  console.log("2я декада");
+} else if (day >= 21 && day <= 30) {
+  console.log("3я декада");
+} else if (day === 31) {
+  console.log("В этом месяце 31 день");
+} else {
+  console.log("Нет месяцев с таким количеством дней");
     }
 
 /*
@@ -69,14 +67,24 @@ if (num1 <= 1 && num2 >= 3){
  */
 
 
-    let num = prompt('Введите число: ');
-    let numb = num;
-    let temp = [];
-    let i=0;
-    while (i <= 2){
-        temp.push(numb % 10);
-        numb = Math.trunc(numb / 10);
-        i++;
-    }
+let userNumber = prompt("Введите число: ", "");
+const number = userNumber;
+let digits =[];
     
-    console.log('В числе: ' + num + ' единиц: ' + temp[0] + ', десятков: ' + temp[1] + ', сотен: ' + temp[2]);
+while(userNumber > 0){
+    digits.push(userNumber % 10)
+    userNumber = parseInt(userNumber / 10);
+}
+    
+for(i = 0; i < digits.length; i++){
+    console.log(digits[i])
+}
+    
+    
+if (number < 10){
+    alert(`В числе ${number} количество сотен: 0, десятков: 0, единиц: ${number}`)
+}else if(number > 9 && number < 99){
+    alert(`В числе ${number} количество сотен: 0, десятков: ${digits[1]}, единиц: ${digits[0]}`)
+}else{
+    alert(`В числе ${number} количество сотен: ${digits[2]}, десятков: ${digits[1]}, единиц: ${digits[0]}`)
+}
